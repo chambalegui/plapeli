@@ -1,0 +1,18 @@
+{
+    "skip_label": "Omitir",
+    "next_label": "Siguiente",
+    "started_now_label": "Comienza ahora",
+    "lesson_course_more_label": "Cursos, lecciones, juegos y más...",
+    "dictionary": "Diccionario",
+    "shop": "Tienda",
+    "sign_in_label": "Inicio de sesión",
+    "app_name_label": "Application",
+    "or_label": "Or",
+    "email_label": "Correo electrónico",
+    "password_label": "Contraseña",
+    "login_label": "Iniciar",
+    "do_not_have_account": "¿No tienes una cuenta?",
+    "register_user_label": "Registro de usuarios",
+    "user_name_label": "Nombre",
+    "register_label": "Register"
+}
