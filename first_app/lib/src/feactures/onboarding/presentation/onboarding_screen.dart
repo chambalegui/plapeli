@@ -59,11 +59,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         state,
       ) {
         if (state is LoadingState) {
-          ScaffoldMessenger.of(context).showSnackBar(
+          /*ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               content: Text("Loading"),
             ),
-          );
+          );*/
         }
       }, builder: (context, state) {
         if (state is LoadingState) {

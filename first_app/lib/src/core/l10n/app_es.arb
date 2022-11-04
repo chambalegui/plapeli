@@ -14,5 +14,13 @@
     "do_not_have_account": "¿No tienes una cuenta?",
     "register_user_label": "Registro de usuarios",
     "user_name_label": "Nombre",
-    "register_label": "Register"
+    "register_label": "Register",
+    "do_you_have_account": "¿Tienes una cuenta? inicia sesión",
+    "information_required_label": "EL campo es requerido",
+    "user_disabled": "El usuario se encuentra deshabilitado.",
+    "user_not_found": "EL usuario no se encuentra registrado.",
+    "user_wrong_password": "La contraseña es incorrecta.",
+    "too_many_requests": "Dispositivo bloqueado por demasiadas solicitudes.",
+    "loading_label": "Iniciando...",
+    "registering_label": "Registrando..."
 }

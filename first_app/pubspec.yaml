@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: ">=2.18.4 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -44,6 +44,11 @@ dependencies:
   provider: ^6.0.4
   firebase_core: ^2.1.1
   firebase_auth: ^4.1.0
+  shared_preferences: ^2.0.15
+  cloud_firestore: ^4.0.3
+  flutter_zoom_drawer: ^3.0.3
+  google_nav_bar: ^5.0.6
+  line_icons: ^2.0.1
 
 dev_dependencies:
   flutter_test:
@@ -70,8 +75,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/icons/
+    - assets/icons/category/
     - assets/images/
     - assets/images/svg/
+    - assets/images/languages/
 
   fonts:
     - family: CM Sans Serif

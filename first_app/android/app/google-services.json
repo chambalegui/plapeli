@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "445464943064",
+    "project_id": "bigu-huini",
+    "storage_bucket": "bigu-huini.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:445464943064:android:d0e46c8f1abb083b2c7aad",
+        "android_client_info": {
+          "package_name": "app.learn.first_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "445464943064-ad24oqj0sh5sc6ftrdln62ija2m3knm0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0wsTyYbbtmmZLZ8JMM9kz_ih4vVmqULE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "445464943064-ad24oqj0sh5sc6ftrdln62ija2m3knm0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

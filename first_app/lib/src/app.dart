@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/src/core/routing/pages.dart';
 import 'package:first_app/src/core/settings/app_multi_bloc_provider.dart';
 import 'package:flutter/material.dart';
