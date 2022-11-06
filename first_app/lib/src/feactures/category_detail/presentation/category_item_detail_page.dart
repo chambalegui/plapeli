@@ -2,7 +2,7 @@ import 'package:first_app/src/core/common_widgets/rounded_button.dart';
 import 'package:first_app/src/core/utils/colors.dart';
 import 'package:first_app/src/core/utils/firebase_util.dart';
 import 'package:first_app/src/feactures/category_detail/presentation/category_item_detail_controller.dart';
-import 'package:first_app/src/feactures/category_detail/presentation/details_course_screen.dart';
+import 'package:first_app/src/feactures/category_detail/presentation/widgets/lesson_item_widget.dart';
 import 'package:first_app/src/feactures/category_detail/presentation/widgets/logo_widget.dart';
 import 'package:first_app/src/feactures/curses/domain/course_dto.dart';
 import 'package:flutter/material.dart';
@@ -225,7 +225,7 @@ class _CategoryItemDetailWidgetState extends State<CategoryItemDetailPage> {
                   children: List.generate(
                     snapshot.data!.length,
                     (index) {
-                      return SeassionCard(
+                      return LessonItemWidget(
                         sesionTitle: snapshot.data![index]!["name"],
                         sessionImg: snapshot.data![index]!["image"],
                         level: snapshot.data![index]!["level"],

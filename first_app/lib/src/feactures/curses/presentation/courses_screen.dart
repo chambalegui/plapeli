@@ -1,6 +1,5 @@
 import 'package:first_app/src/core/constants/constant.dart';
 import 'package:first_app/src/core/utils/firebase_util.dart';
-import 'package:first_app/src/feactures/category_detail/presentation/category_detail_item_widget.dart';
 import 'package:first_app/src/feactures/category_detail/presentation/category_item_detail_page.dart';
 import 'package:first_app/src/feactures/curses/domain/course_dto.dart';
 import 'package:first_app/src/feactures/curses/presentation/widgets/category_card.dart';
