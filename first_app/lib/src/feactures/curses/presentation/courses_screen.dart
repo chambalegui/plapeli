@@ -1,6 +1,7 @@
 import 'package:first_app/src/core/constants/constant.dart';
 import 'package:first_app/src/core/utils/firebase_util.dart';
-import 'package:first_app/src/feactures/category_detail/presentation/category_detail_item_screen.dart';
+import 'package:first_app/src/feactures/category_detail/presentation/category_detail_item_widget.dart';
+import 'package:first_app/src/feactures/category_detail/presentation/category_item_detail_page.dart';
 import 'package:first_app/src/feactures/curses/domain/course_dto.dart';
 import 'package:first_app/src/feactures/curses/presentation/widgets/category_card.dart';
 import 'package:first_app/src/feactures/curses/presentation/widgets/primary_text.dart';
@@ -63,13 +64,13 @@ class _CursesState extends State<Curses> {
                       fontSize: 20,
                     ),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.symmetric(
                       vertical: defaultPadding,
                     ),
                     child: SearchForm(),
                   ),
-                  Padding(
+                  const Padding(
                     padding: const EdgeInsets.only(left: 0),
                     child: PrimaryText(
                       text: 'Categorias',
@@ -93,7 +94,7 @@ class _CursesState extends State<Curses> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => CategoryItemDetailWidget(
+                                builder: (context) => CategoryItemDetailPage(
                                     curso: cursos[
                                         index]), /*DetailsCourseScreen(
                                   curso: cursos[index],

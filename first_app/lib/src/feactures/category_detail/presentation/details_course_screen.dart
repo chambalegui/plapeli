@@ -204,33 +204,7 @@ class SeassionCard extends StatelessWidget {
               onTap: () {},
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: /*Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.all(8.0),
-                      decoration: BoxDecoration(
-                        color: isDone ? Colors.blue[50] : Colors.white,
-                        shape: BoxShape.circle,
-                        border: Border.all(color: primaryColor),
-                      ),
-                      child: Image.asset(
-                        sessionImg,
-                        height: 30,
-                        width: 30,
-                      ),
-                    ),
-                    Text(
-                      sesionTitle,
-                      style: Theme.of(context).textTheme.subtitle1,
-                    ),
-                    Icon(
-                      Icons.chevron_right_rounded,
-                      size: 20,
-                    )
-                  ],
-                ),*/
-                    ListTile(
+                child: ListTile(
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 0.0, vertical: 0.0),
                   leading: Container(
