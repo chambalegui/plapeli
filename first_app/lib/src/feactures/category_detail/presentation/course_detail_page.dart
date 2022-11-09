@@ -1,26 +1,24 @@
 import 'package:first_app/src/core/common_widgets/rounded_button.dart';
 import 'package:first_app/src/core/utils/colors.dart';
 import 'package:first_app/src/core/utils/firebase_util.dart';
-import 'package:first_app/src/feactures/category_detail/presentation/category_item_detail_controller.dart';
+import 'package:first_app/src/feactures/category_detail/application/category_item_detail_controller.dart';
 import 'package:first_app/src/feactures/category_detail/presentation/widgets/lesson_item_widget.dart';
-import 'package:first_app/src/feactures/category_detail/presentation/widgets/logo_widget.dart';
+import 'package:first_app/src/feactures/course_lesson/presentation/course_lesson_page.dart';
 import 'package:first_app/src/feactures/curses/domain/course_dto.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
 
-class CategoryItemDetailPage extends StatefulWidget {
+class CourseDetailPage extends StatefulWidget {
   final CourseDTO curso;
 
-  const CategoryItemDetailPage({super.key, required this.curso});
+  const CourseDetailPage({super.key, required this.curso});
 
   @override
-  State<CategoryItemDetailPage> createState() =>
-      _CategoryItemDetailWidgetState();
+  State<CourseDetailPage> createState() => _CategoryItemDetailWidgetState();
 }
 
-class _CategoryItemDetailWidgetState extends State<CategoryItemDetailPage> {
+class _CategoryItemDetailWidgetState extends State<CourseDetailPage> {
   late Future<Map<dynamic, Map<String, dynamic>>> leccionColletion;
 
   @override
@@ -41,35 +39,56 @@ class _CategoryItemDetailWidgetState extends State<CategoryItemDetailPage> {
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return [
             SliverAppBar(
-              pinned: true,
-              floating: false,
-              elevation: 1,
-              expandedHeight: 160,
-              backgroundColor: Color.fromARGB(255, 245, 183, 27),
-              flexibleSpace: FlexibleSpaceBar(
-                expandedTitleScale: 2,
-                centerTitle: true,
-                title: Container(
-                  alignment: Alignment.bottomCenter,
-                  width: double.infinity,
-                  child: Text(
-                    widget.curso.name,
-                    style: const TextStyle(
-                      fontFamily: "Pacifico",
-                      fontSize: 18,
-                      color: Colors.white,
+                pinned: true,
+                floating: false,
+                elevation: 1,
+                expandedHeight: 160,
+                backgroundColor: Color.fromARGB(
+                  widget.curso.colorA,
+                  widget.curso.colorR,
+                  widget.curso.colorG,
+                  widget.curso.colorB,
+                ),
+                flexibleSpace: FlexibleSpaceBar(
+                  centerTitle: true,
+                  title: Container(
+                    alignment: Alignment.bottomCenter,
+                    width: double.infinity,
+                    child: Text(
+                      widget.curso.name,
+                      style: TextStyle(
+                        fontFamily: "Pacifico",
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        shadows: const [
+                          Shadow(
+                            color: Colors.black,
+                            offset: Offset(2, 1),
+                            blurRadius: 15,
+                          ),
+                        ],
+                        color: Color.fromARGB(
+                          widget.curso.colorA,
+                          widget.curso.colorR,
+                          widget.curso.colorG,
+                          widget.curso.colorB,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-                background: FadeInImage(
-                  placeholder: Image.asset("assets/images/loading.gif").image,
-                  image: Image.asset(
-                    "assets/images/fondo.png",
-                  ).image,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+                  background: Hero(
+                    tag: widget.curso.id,
+                    child: FadeInImage(
+                      placeholder:
+                          Image.asset("assets/images/loading.gif").image,
+                      image: Image.asset(
+                        "assets/images/fondo.png",
+                      ).image,
+                      fadeInDuration: const Duration(milliseconds: 150),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                )),
           ];
         },
         body: Scaffold(
@@ -92,69 +111,34 @@ class _CategoryItemDetailWidgetState extends State<CategoryItemDetailPage> {
 
   Widget courseDetail() {
     return Container(
-      margin: EdgeInsets.only(top: 20),
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      child:
-          /*ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: FadeInImage(
-              placeholder: Image.asset("assets/images/loading.gif").image,
-              image: Image.asset(
-                widget.curso.image,
-              ).image,
-              height: 100,
-            ),
-          ),
-          SizedBox(
-            width: 15,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                widget.curso.name,
-                style: const TextStyle(
-                  fontFamily: "Pacifico",
-                  fontSize: 18,
-                  color: Color.fromARGB(
-                    255,
-                    81,
-                    111,
-                    211,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Text(
-                widget.curso.variant,
-              ),
-            ],
-          )*/
-          ListTile(
-        contentPadding: EdgeInsets.symmetric(
+      margin: const EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: ListTile(
+        contentPadding: const EdgeInsets.symmetric(
           horizontal: 0.0,
           vertical: 0.0,
         ),
         leading: Container(
-          decoration: new BoxDecoration(
-            border: new Border(
-              right: new BorderSide(
-                width: 1.0,
-                color: Colors.white24,
-              ),
+          padding: const EdgeInsets.all(10.0),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Color.fromARGB(
+              widget.curso.colorA,
+              widget.curso.colorR,
+              widget.curso.colorG,
+              widget.curso.colorB,
             ),
+            border: Border.all(color: primaryColor),
           ),
           child: Image.asset(
-            widget.curso.image,
-            height: 60,
-            width: 60,
+            "assets/images/languages/LANGUAGE.png",
+            height: 30,
+            width: 30,
           ),
         ),
         title: Text(
           widget.curso.name,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 18,
           ),
@@ -178,8 +162,8 @@ class _CategoryItemDetailWidgetState extends State<CategoryItemDetailPage> {
 
   Widget courseDetailDescription() {
     return Container(
-      margin: EdgeInsets.only(top: 20),
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -191,7 +175,7 @@ class _CategoryItemDetailWidgetState extends State<CategoryItemDetailPage> {
               fontSize: 18,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Text(
@@ -199,7 +183,7 @@ class _CategoryItemDetailWidgetState extends State<CategoryItemDetailPage> {
             overflow: TextOverflow.clip,
             textAlign: TextAlign.justify,
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           const Text(
@@ -230,7 +214,15 @@ class _CategoryItemDetailWidgetState extends State<CategoryItemDetailPage> {
                         sessionImg: snapshot.data![index]!["image"],
                         level: snapshot.data![index]!["level"],
                         isDone: true,
-                        press: () {},
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CourseLessonPage(
+                                  lessonId: snapshot.data![index]!["id"]),
+                            ),
+                          );
+                        },
                       );
                     },
                   ),
@@ -245,7 +237,12 @@ class _CategoryItemDetailWidgetState extends State<CategoryItemDetailPage> {
             onPressed: () {},
             label: "Iniciar",
             fullWidth: true,
-            buttonColor: Color.fromARGB(255, 245, 183, 27),
+            buttonColor: Color.fromARGB(
+              widget.curso.colorA,
+              widget.curso.colorR,
+              widget.curso.colorG,
+              widget.curso.colorB,
+            ),
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
           ),
         ],

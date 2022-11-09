@@ -1,4 +1,7 @@
 import 'package:first_app/src/core/common_widgets/drawer_screen.dart';
+import 'package:first_app/src/feactures/category_detail/presentation/course_detail_page.dart';
+import 'package:first_app/src/feactures/curses/domain/course_dto.dart';
+//import 'package:first_app/src/feactures/category_detail/presentation/course_detail_page.dart';
 import 'package:first_app/src/feactures/onboarding/presentation/onboarding_screen.dart';
 import 'package:first_app/src/feactures/register_user/presentation/register_user_screen.dart';
 import 'package:first_app/src/feactures/sign_in/presentation/sign_in_screen.dart';

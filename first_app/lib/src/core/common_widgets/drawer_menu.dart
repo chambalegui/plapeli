@@ -18,11 +18,11 @@ class _DrawerMenuState extends State<DrawerMenu> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          drawerList(Icons.home, "Courses", 0),
-          drawerList(Icons.book, "Dictionary", 1),
-          drawerList(Icons.shop, "Shop", 2),
-          drawerList(Icons.people, "About us", 3),
-          drawerList(Icons.exit_to_app, "Sing up", 4),
+          drawerList(Icons.home, "Cursos", 0),
+          drawerList(Icons.shop, "Tienda", 1),
+          drawerList(Icons.menu_book, "Terminos y condiciones", 2),
+          drawerList(Icons.people, "Acerca de nosotros", 3),
+          drawerList(Icons.exit_to_app, "Cerrar sesión", 4),
         ],
       ),
     );
@@ -45,10 +45,12 @@ class _DrawerMenuState extends State<DrawerMenu> {
             const SizedBox(
               width: 12,
             ),
-            Text(
-              text,
-              style: const TextStyle(
-                  color: Colors.white, fontWeight: FontWeight.bold),
+            Expanded(
+              child: Text(
+                text,
+                style: const TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         ),

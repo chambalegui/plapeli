@@ -49,6 +49,7 @@ dependencies:
   flutter_zoom_drawer: ^3.0.3
   google_nav_bar: ^5.0.6
   line_icons: ^2.0.1
+  flip_card: ^0.6.0
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +81,8 @@ flutter:
     - assets/images/
     - assets/images/svg/
     - assets/images/languages/
+    - assets/images/languages/lessons/
+    - assets/images/languages/lessons/saludos/
 
   fonts:
     - family: CM Sans Serif

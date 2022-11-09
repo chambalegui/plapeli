@@ -1,5 +1,6 @@
 import 'package:first_app/src/core/common_widgets/general_app_bar.dart';
 import 'package:first_app/src/feactures/curses/presentation/courses_screen.dart';
+import 'package:first_app/src/feactures/home/presentation/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -14,19 +15,29 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   final ZoomDrawerController _drawerController = ZoomDrawerController();
+  int _selectedIndex = 0;
+
+  static const List<Widget> _widgetOptions = <Widget>[
+    HomePage(),
+    Curses(),
+    Center(
+      child: Text("Diccionario"),
+    ),
+    Center(
+      child: Text("Perfil"),
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    int _selectedIndex = 0;
-
     return Scaffold(
       appBar: GeneralAppBar(
         zoomController: _drawerController,
         contextZoom: context,
       ),
       body: Stack(
-        children: const <Widget>[
-          Curses(),
+        children: <Widget>[
+          _widgetOptions.elementAt(_selectedIndex),
         ],
       ),
       bottomNavigationBar: Container(
@@ -57,7 +68,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               tabs: const [
                 GButton(
                   icon: LineIcons.home,
-                  text: 'Aprendizaje',
+                  text: 'Inicio',
                 ),
                 GButton(
                   icon: LineIcons.bookOpen,
@@ -69,7 +80,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 GButton(
                   icon: LineIcons.user,
-                  text: 'Estadisticas',
+                  text: 'Perfil',
                 ),
               ],
               selectedIndex: _selectedIndex,

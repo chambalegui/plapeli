@@ -6,7 +6,7 @@ class LessonItemWidget extends StatelessWidget {
   final String sessionImg;
   final String level;
   final bool isDone;
-  final Function press;
+  final VoidCallback press;
   const LessonItemWidget({
     Key? key,
     required this.sesionTitle,
@@ -38,7 +38,7 @@ class LessonItemWidget extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: () {},
+              onTap: press,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListTile(

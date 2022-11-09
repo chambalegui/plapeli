@@ -8,14 +8,14 @@ import 'package:first_app/src/feactures/curses/presentation/widgets/primary_text
 import 'package:first_app/src/feactures/search/presentation/search_screen.dart';
 import 'package:flutter/material.dart';
 
-class Curses extends StatefulWidget {
-  const Curses({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<Curses> createState() => _CursesState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _CursesState extends State<Curses> {
+class _HomePageState extends State<HomePage> {
   late Future<Map<dynamic, Map<String, dynamic>>> cursosColletion;
 
   @override
@@ -62,51 +62,56 @@ class _CursesState extends State<Curses> {
                 children: <Widget>[
                   const SizedBox(height: 15),
                   const Text(
-                    "Cursos",
+                    "Mi aprendizaje",
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 20,
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(
-                      vertical: defaultPadding,
-                    ),
-                    child: SearchForm(),
-                  ),
-                  Expanded(
-                    child: GridView.count(
-                      crossAxisCount: 3,
-                      childAspectRatio: .85,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      children: List.generate(
-                        cursos.length,
-                        (index) => CourseCard(
-                          name: cursos[index].name,
-                          image: cursos[index].image,
-                          variant: cursos[index].variant,
-                          colorA: cursos[index].colorA,
-                          colorR: cursos[index].colorR,
-                          colorG: cursos[index].colorG,
-                          colorB: cursos[index].colorB,
-                          press: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    CourseDetailPage(curso: cursos[index]),
+                  const SizedBox(height: 15),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 4,
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Stack(
+                        children: <Widget>[
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(5.0),
+                              child: Image.network(
+                                "https://image.freepik.com/free-vector/doctor-concept-illustration_114360-1269.jpg",
                               ),
-                            );
-                          },
-                        ),
+                            ),
+                          ),
+                          Positioned.fill(
+                            child: Container(
+                              padding: const EdgeInsets.all(11.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5.0),
+                                color: Colors.blue.withOpacity(.3),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    "¿No has iniciado con alguno de nuestros cursos?",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
                 ],
               );
             } else {
-              return const Text('Obteniendo cursos...');
+              return const Text('Sin cursos...');
             }
           },
         ),

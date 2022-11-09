@@ -21,21 +21,21 @@ class SearchForm extends StatelessWidget {
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
-          hintText: "Search languages, development courses...",
+          hintText: "",
           border: outlineInputBorder,
           enabledBorder: outlineInputBorder,
           focusedBorder: outlineInputBorder,
           errorBorder: outlineInputBorder,
           prefixIcon: Padding(
-            padding: const EdgeInsets.all(14),
+            padding: const EdgeInsets.all(12),
             child: SvgPicture.asset("assets/icons/Search.svg"),
           ),
           suffixIcon: Padding(
             padding: const EdgeInsets.symmetric(
                 horizontal: defaultPadding, vertical: defaultPadding / 2),
             child: SizedBox(
-              width: 48,
-              height: 48,
+              width: 44,
+              height: 44,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: color.primaryColor,
